@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJDIR = build
 
-SRC =   main.cpp 
+SRC =   main.cpp iter.cpp
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
