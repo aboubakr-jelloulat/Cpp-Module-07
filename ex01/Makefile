@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJDIR = build
 
-SRC =   main.cpp iter.cpp
+SRC =   main.cpp 
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
@@ -17,7 +17,7 @@ $(NAME): $(OBJ)
 	@echo  "\nCreated executable '$(NAME)'"
 
 
-$(OBJDIR)/%.o: %.cpp Makefile *h | $(OBJDIR)
+$(OBJDIR)/%.o: %.cpp Makefile *h  | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	
 $(OBJDIR):
@@ -31,4 +31,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+exec : all clean
+	./$(NAME)
+
+.PHONY: all clean fclean re exec
