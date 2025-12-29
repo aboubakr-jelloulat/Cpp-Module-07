@@ -14,6 +14,9 @@ Array<T>::Array(const unsigned int &n) : _n(n), _arr(new T[n])
 template <typename T>
 Array<T>::Array(const Array &src) : _n(src.size()), _arr(new T[src.size()])
 {
+	#ifdef DEBUG
+		std::cout << "call copy constractor" << std::endl;
+	#endif
 	for (unsigned int i = 0; i < src.size(); i++)
 		_arr[i] = src[i];
 }
@@ -21,10 +24,22 @@ Array<T>::Array(const Array &src) : _n(src.size()), _arr(new T[src.size()])
 template <typename T>
 Array<T> &Array<T>::operator=(const Array<T> &src)
 {
-	std::cout << "this address :  " << this << std::endl;
-	std::cout << "&src address :  " << src << std::endl;
+	#ifdef DEBUG
+		std::cout << "this address :  " << this << std::endl;
+		std::cout << "&src address :  " << &src << std::endl;
+	#endif
+
+	#ifdef DEBUG
+		std::cout << "call assgin operator" << std::endl;
+	#endif
+
 	if (this == &src)
+	{
+		#ifdef DEBUG
+			std::cout << "self assignment clled" << std::endl;
+		#endif
 		return *this;
+	}
 
 	if (_arr)
 		delete[] _arr;

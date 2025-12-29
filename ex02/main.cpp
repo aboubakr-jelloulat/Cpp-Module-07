@@ -77,26 +77,44 @@ void	_const()
 	const Array<int> data(arr); // cpc
 
 	assert(data.size() == 3);
-	// std::cout << "data elements : " << std::endl;
-	// display(data);
+	std::cout << "data elements : " << std::endl;
+	display(data);
 
 
-	const Array<int> arr2 = data; // = op
+	Array<int> arr2;
+	arr2 = data; // = op
 
-	// std::cout << "arr2 elements : " << std::endl;
-	// display(arr2);
+	std::cout << "arr2 elements : " << std::endl;
+	display(arr2);
+
+}
+
+void	_self_assgin()
+{
+	Array<int> arr(3);
+
+	arr[0] = 1337;
+	arr[1] = 42;
+	arr[2] = 19;
+
+	arr = arr;
+
+	std::cout << "arr elements : " << std::endl;
+	display(arr);
 
 }
 
 int main(void)
 {
-	// _out_of_range();
+	_out_of_range();
 
-	// _char();
+	_char();
 
-	// _int();
+	_int();
 
 	_const();
+
+	_self_assgin();
 
 	system("leaks -q array");
 	return 0;
