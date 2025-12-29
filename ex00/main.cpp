@@ -5,7 +5,7 @@ void    _42( void )
 {
     int a = 2;
     int b = 3;
-    ::swap( a, b );
+    ::swap( 4, 5 );
 
     std::cout << "a = " << a << ", b = " << b << std::endl;
     std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
