@@ -119,5 +119,6 @@ int main(void)
 
 
 	system("leaks -q array");
+
 	return 0;
 }
