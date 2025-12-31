@@ -75,6 +75,7 @@ void	_const()
 	arr[2] = 19;
 
 	const Array<int> data(arr); // cpc
+	// data[0] = 44;
 
 	assert(data.size() == 3);
 	std::cout << "data elements : " << std::endl;
@@ -97,7 +98,7 @@ void	_self_assgin()
 	arr[1] = 42;
 	arr[2] = 19;
 
-	arr = arr;
+	// arr = arr; // use after free
 
 	std::cout << "arr elements : " << std::endl;
 	display(arr);
@@ -115,6 +116,7 @@ int main(void)
 	_const();
 
 	_self_assgin();
+
 
 	system("leaks -q array");
 	return 0;

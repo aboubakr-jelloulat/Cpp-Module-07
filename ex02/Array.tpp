@@ -7,12 +7,12 @@ Array<T>::Array() : _n(0), _arr(NULL)
 
 
 template <typename T>
-Array<T>::Array(const unsigned int &n) : _n(n), _arr(new T[n])
+Array<T>::Array(const unsigned int &n) : _n(n), _arr(new T[n]())
 {
 }
 
 template <typename T>
-Array<T>::Array(const Array &src) : _n(src.size()), _arr(new T[src.size()])
+Array<T>::Array(const Array &src) : _n(src.size()), _arr(new T[src.size()]())
 {
 	#ifdef DEBUG
 		std::cout << "call copy constractor" << std::endl;
@@ -36,7 +36,7 @@ Array<T> &Array<T>::operator=(const Array<T> &src)
 	if (this == &src)
 	{
 		#ifdef DEBUG
-			std::cout << "self assignment clled" << std::endl;
+			std::cout << "*** self assignment clled ***" << std::endl;
 		#endif
 		return *this;
 	}
@@ -46,7 +46,7 @@ Array<T> &Array<T>::operator=(const Array<T> &src)
 
 	_n = src.size();
 
-	_arr = new T[src.size()];
+	_arr = new T[_n]();
 
 	for (unsigned int i = 0; i < src.size(); i++)
 		_arr[i] = src[i];
@@ -88,4 +88,6 @@ const T &Array<T>::operator[](unsigned int i) const
 template <typename T>
 Array<T>::~Array()
 {
+	if (_arr)
+        delete[] _arr;
 }
