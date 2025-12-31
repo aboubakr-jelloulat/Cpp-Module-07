@@ -1,4 +1,6 @@
 #include "iter.h"
+#include <algorithm>
+
 
 template<typename T>
 void	_print(T const &value)
@@ -27,7 +29,6 @@ void	_int()
 }
 
 
-
 void	_to_upper(char &c)
 {
 	c = toupper(c);
@@ -46,6 +47,7 @@ void	_str()
 	std::cout << "str  : ";
 	iter(&str[0], 21, _print);
 }
+
 
 
 

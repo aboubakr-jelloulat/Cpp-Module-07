@@ -1,8 +1,8 @@
 NAME = iter
 
-CXX = c++
+CXX := c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 
 
 OBJDIR = build
 
@@ -35,3 +35,7 @@ exec : all clean
 	./$(NAME)
 
 .PHONY: all clean fclean re exec
+
+ifdef DEBUG
+CXXFLAGS += -DDEBUG
+endif
